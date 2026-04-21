@@ -4,6 +4,8 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
+import de.example.quizui.panel.RootPanel;
+
 /**
  * Hauptfenster der Quiz-Oberfläche.
  * <p>

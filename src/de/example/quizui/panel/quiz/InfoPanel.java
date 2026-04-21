@@ -1,11 +1,12 @@
-package de.example.quizui.panel;
-
-import de.example.quizui.ui.AppLabel;
-import de.example.quizui.ui.AppPanel;
+package de.example.quizui.panel.quiz;
 
 import javax.swing.BorderFactory;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+
+import de.example.quizui.element.AppLabel;
+import de.example.quizui.element.AppPanel;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;

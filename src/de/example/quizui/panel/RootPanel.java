@@ -1,12 +1,13 @@
-package de.example.quizui.frame;
+package de.example.quizui.panel;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.BorderFactory;
 
-import de.example.quizui.panel.HeaderPanel;
-import de.example.quizui.ui.AppPanel;
+import de.example.quizui.element.AppPanel;
+import de.example.quizui.panel.header.HeaderPanel;
+import de.example.quizui.panel.quiz.QuizPanel;
 
 public class RootPanel extends AppPanel{
 

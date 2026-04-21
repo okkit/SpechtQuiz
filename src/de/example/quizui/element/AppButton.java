@@ -1,4 +1,4 @@
-package de.example.quizui.ui;
+package de.example.quizui.element;
 
 import javax.swing.JButton;
 import java.awt.Color;
