@@ -1,9 +1,8 @@
 package de.example.quizui.frame;
 
-import java.awt.Dimension;
-
 import javax.swing.JFrame;
 
+import de.example.quizui.UIConstants;
 import de.example.quizui.panel.RootPanel;
 
 /**
@@ -14,7 +13,7 @@ import de.example.quizui.panel.RootPanel;
  * aufgebaut, ohne fachliche Logik oder Persistenz.
  * </p>
  */
-public class QuizFrame extends JFrame {
+public class QuizFrame extends JFrame{
 
     /**
      * Erstellt das Hauptfenster und initialisiert alle enthaltenen GUI-Bereiche.
@@ -29,11 +28,11 @@ public class QuizFrame extends JFrame {
      * Initialisiert die grundlegenden Fenstereigenschaften.
      */
     private void initializeFrame() {
-        setTitle("Quiz Oberfläche");
+        setTitle(UIConstants.APP_TITLE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(new Dimension(900, 800));
+        setSize(UIConstants.FRAME_DIMENSION);
         setLocationRelativeTo(null);
-        setResizable(true);
+        setResizable(false);
     }
 
 }

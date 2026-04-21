@@ -1,13 +1,13 @@
 package de.example.quizui.panel.quiz;
 
-import javax.swing.BorderFactory;
-import javax.swing.ButtonGroup;
-
-import de.example.quizui.element.AppPanel;
-import de.example.quizui.element.AppRadioButton;
-
 import java.awt.Color;
 import java.awt.GridLayout;
+
+import javax.swing.ButtonGroup;
+
+import de.example.quizui.UIConstants;
+import de.example.quizui.element.AppPanel;
+import de.example.quizui.element.AppRadioButton;
 
 /**
  * Panel für die Anzeige der auswählbaren Antwortoptionen.
@@ -32,7 +32,7 @@ public class AnswerPanel extends AppPanel {
      */
     private void initializePanel() {
         setLayout(new GridLayout(4, 1, 0, 18));
-        setBorder(BorderFactory.createEmptyBorder(20, 30, 20, 30));
+        setBorder(UIConstants.AP_EMPTY_BORDER);
         setBackground(Color.WHITE);
     }
 

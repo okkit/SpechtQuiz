@@ -1,13 +1,14 @@
 package de.example.quizui.panel.quiz;
 
-import javax.swing.BorderFactory;
-
-import de.example.quizui.element.AppLabel;
-import de.example.quizui.element.AppPanel;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+
+import javax.swing.BorderFactory;
+
+import de.example.quizui.UIConstants;
+import de.example.quizui.element.AppLabel;
+import de.example.quizui.element.AppPanel;
 
 /**
  * Panel für die Anzeige der aktuellen Frage.
@@ -28,8 +29,8 @@ public class QuestionPanel extends AppPanel {
     private void initializePanel() {
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(180, 180, 180)),
-                BorderFactory.createEmptyBorder(20, 20, 20, 20)
+                UIConstants.QP_MATTE_BORDER,
+                UIConstants.QP_EMPTY_BORDER
         ));
         setBackground(Color.WHITE);
     }

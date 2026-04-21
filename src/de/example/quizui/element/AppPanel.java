@@ -12,7 +12,7 @@ import java.awt.LayoutManager;
  * und Standard-Innenabstand.
  * </p>
  */
-public class AppPanel extends JPanel {
+public abstract class AppPanel extends JPanel {
 
     /**
      * Erstellt ein Panel mit dem übergebenen Layoutmanager.
