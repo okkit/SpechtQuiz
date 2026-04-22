@@ -7,6 +7,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 
 import de.example.quizui.UIConstants;
+import de.example.quizui.element.AppBigLabel;
 import de.example.quizui.element.AppLabel;
 import de.example.quizui.element.AppPanel;
 
@@ -45,12 +46,12 @@ public class HeaderPanel extends AppPanel {
 	 * Baut die enthaltenen Komponenten des Panels auf.
 	 */
 	private void buildLayout() {
-		AppLabel questionCounterLabel = new AppLabel("Frage 10 / 16");
-		questionCounterLabel.setAppFontStyle(Font.PLAIN, 28);
+		AppBigLabel questionCounterLabel = new AppBigLabel("Frage 10 / 16");
+//		questionCounterLabel.setAppFontStyle(Font.PLAIN, 28);
 
-		AppLabel scoreLabel = new AppLabel("Richtig: 2 / 10", SwingConstants.RIGHT);
-		scoreLabel.setAppFontStyle(Font.BOLD, 28);
-		scoreLabel.setForeground(new Color(0, 120, 90));
+		AppBigLabel scoreLabel = new AppBigLabel("Richtig: 2 / 10", SwingConstants.RIGHT);
+//		scoreLabel.setAppFontStyle(Font.BOLD, 28);
+//		scoreLabel.setForeground(new Color(0, 120, 90));
 
 		add(questionCounterLabel, BorderLayout.WEST);
 		add(scoreLabel, BorderLayout.EAST);

@@ -16,7 +16,7 @@ public abstract class UIConstants {
 	public static final Font FONT_HEADER = new Font("Calibri", Font.PLAIN, 30);
 	
 	// Farben
-	public static final Color TEXT_COLOR_STANDARD = Color.BLACK;
+	public static final Color TEXT_COLOR_STANDARD = Color.RED;
 	public static final Color TEXT_COLOR_SUCCESS = Color.GREEN;
 	public static final Color TEXT_COLOR_ERROR = Color.RED;
 	
