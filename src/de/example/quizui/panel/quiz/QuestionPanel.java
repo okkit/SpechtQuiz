@@ -2,7 +2,6 @@ package de.example.quizui.panel.quiz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Font;
 
 import javax.swing.BorderFactory;
 
@@ -42,7 +41,6 @@ public class QuestionPanel extends AppPanel {
         AppLabel questionLabel = new AppLabel(
                 "<html>Wie viele Methoden<br>kann eine Klasse haben?</html>"
         );
-        questionLabel.setAppFontStyle(Font.PLAIN, 34);
 
         add(questionLabel, BorderLayout.CENTER);
     }

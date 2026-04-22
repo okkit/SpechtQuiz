@@ -41,8 +41,10 @@ public class InfoPanel extends AppPanel {
      */
     private void buildLayout() {
         AppLabel infoLabel = new AppLabel("Info:");
-        infoLabel.setAppFontStyle(Font.BOLD, 20);
 
+        // TODO
+        // Schreibt die Klasse AppTextArea und verwendet diese hier 
+        // den Konstruktor der Klasse anstatt die Methode buildInfoArea() aufzurufen.
         JTextArea infoArea = buildInfoArea();
         JScrollPane scrollPane = new JScrollPane(infoArea);
 
@@ -50,11 +52,8 @@ public class InfoPanel extends AppPanel {
         add(scrollPane, BorderLayout.CENTER);
     }
 
-    /**
-     * Erstellt und initialisiert das Textfeld für den Informationsbereich.
-     *
-     * @return konfigurierte TextArea für Informationen
-     */
+
+    // TODO. Dies all soll in den Knstruktor der neuen Klasse AppTextArea
     private JTextArea buildInfoArea() {
         JTextArea infoArea = new JTextArea();
         infoArea.setLineWrap(true);

@@ -33,11 +33,6 @@ public class HeaderPanel extends AppPanel {
 	 */
 	private void initializePanel() {
 		setLayout(new BorderLayout());
-		
-//		Border outsideBorder = BorderFactory.createLineBorder(new Color(180, 180, 180), 1);
-//		Border insideBorder = BorderFactory.createEmptyBorder(10, 15, 10, 15);
-//		CompoundBorder border = BorderFactory.createCompoundBorder(outsideBorder, insideBorder);
-		
 		setBorder(UIConstants.HP_COMPOUD_BORDER);
 		setBackground(Color.WHITE);
 	}
@@ -47,11 +42,7 @@ public class HeaderPanel extends AppPanel {
 	 */
 	private void buildLayout() {
 		AppBigLabel questionCounterLabel = new AppBigLabel("Frage 10 / 16");
-//		questionCounterLabel.setAppFontStyle(Font.PLAIN, 28);
-
 		AppBigLabel scoreLabel = new AppBigLabel("Richtig: 2 / 10", SwingConstants.RIGHT);
-//		scoreLabel.setAppFontStyle(Font.BOLD, 28);
-//		scoreLabel.setForeground(new Color(0, 120, 90));
 
 		add(questionCounterLabel, BorderLayout.WEST);
 		add(scoreLabel, BorderLayout.EAST);
