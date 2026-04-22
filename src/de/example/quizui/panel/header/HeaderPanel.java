@@ -2,13 +2,11 @@ package de.example.quizui.panel.header;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Font;
 
 import javax.swing.SwingConstants;
 
 import de.example.quizui.UIConstants;
 import de.example.quizui.element.AppBigLabel;
-import de.example.quizui.element.AppLabel;
 import de.example.quizui.element.AppPanel;
 
 /**
