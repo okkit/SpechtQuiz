@@ -2,6 +2,7 @@ package de.example.quizdata;
 
 import java.util.Random;
 
+import de.example.quizdata.objects.Answer;
 import de.example.quizdata.objects.Question;
 import de.example.quizdata.objects.Quiz;
 
@@ -13,6 +14,7 @@ public class FakeDataManager implements QuizDataManager {
 		Quiz quiz = createFirstQuiz();
 		return quiz;
 	}
+	
 
 	private Quiz createFirstQuiz() {
 
@@ -20,30 +22,23 @@ public class FakeDataManager implements QuizDataManager {
 		// TODO: 1. vier Fragen, 2. je Frage vier Antworten
 
 		int fragenAnzahl = 4; // Wir erstellen mehrere (fragenAnzahl) Fakefragen
-		int antwortenAnzahl = 4; // Zu jeder Frage erstellen wir mehrere (antwortenAnzahl) Fakeantworten
+		int antwortenAnzahl = 4; // Zu jeder Frage erstellen wir mehrere (antwortenAnzahl)
+									// Fakeantworten
 		Random zufall = new Random();
 		int zufallsJ; // Index der richtigen Frage. Wird zufällig festgelegt.
 
 		for (int i = 0; i < fragenAnzahl; i++) {
-			Question frage = new Question("Frage " + i); // Eine neue Frage
-			// --------------------------------------------------------------------
-			// Die Klasse Question hat den Konstruktor: public Question(String text)
-			// Konstruktoraufruf: new Question("Frage " + i)
-			// Operator: new
-			// Instanz: new Question("Frage " + i)
-			// Instanz auf die Variable speichern: frage = new Question("Frage " + i)
-			// Somit ist die lokale Variable frage auch eine Instanz der Klasse Question.
-			// --------------------------------------------------------------------
+			Question frage = new Question("Dies ist die Quiz-Frage Nummer " + i); // Eine neue Frage
+			q.addQuestion(frage); // Die Frage zum Quiz hinzufügen
 
-			zufallsJ = zufall.nextInt(antwortenAnzahl); // Zufallsindex der richtigen Antwort
-
+			// Index für die richtige Frage zufällig bestimmen
+			zufallsJ = zufall.nextInt(antwortenAnzahl);
 			for (int j = 0; j < antwortenAnzahl; j++) {
 				if (j == zufallsJ)
-					frage.addAnswer("Richtige Antwort " + j, true); // Eine richtige Antwort zur Frage hinzufügen
+					frage.addAnswer("A" + j, true);
 				else
-					frage.addAnswer("Falsche Antwort " + j, false); // Alle anderen Antworten sind falsche Antworten
+					frage.addAnswer("A" + j, false); // Alle anderen Antworten sind
 			}
-
 		}
 		return q;
 	}

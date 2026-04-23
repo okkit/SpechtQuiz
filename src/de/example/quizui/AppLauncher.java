@@ -17,11 +17,7 @@ public class AppLauncher extends Object{
      * @param args Kommandozeilenargumente, werden in dieser Anwendung nicht verwendet
      */
     public static void main(String[] args) {
-//       
-//    		if (args != null) {
-//    			for (int i = 0; i < args.length; i++)
-//    				System.out.print(args[i]);
-//    		}
+
             new QuizFrame();
     }
 }

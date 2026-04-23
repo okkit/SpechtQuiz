@@ -5,18 +5,24 @@ import java.util.List;
 
 public class Question {
 
-	private String text;
-	private String info;
+	private String text; // Ohne Initialisierung null
+	private String info; // Ohne Initialisierung null
 	/**
 	 * Aggregation (Sammlung) der Instanzen der Klasse Answer, bzw der
 	 * Answer-Objekte.
 	 */
-	private List<Answer> answers;
+	private List<Answer> answers = new ArrayList<Answer>(); // Ohne Initialisierung null
 
-	public Question(String text) {
-		super();
-		this.text = text;
+	// Standardkonstruktor
+	public Question() {
+		super(); // super braucht man nicht, wir tun es dennoch, um NICHT die Mutter zu vergessen 
 		answers = new ArrayList<Answer>();
+	}
+
+	// Konstruktor
+	public Question(String text) {
+		this();
+		this.text = text;
 	}
 
 	public void addAnswer(String text, boolean correct) {
@@ -24,11 +30,10 @@ public class Question {
 	}
 
 	public void addAnswer(Answer answer) {
-		if (answers != null) {
-
-			answers.add(answer);
-			answer.setQuestion(this);
-		}
+		if (answers == null)
+			answers = new ArrayList<Answer>();
+		answers.add(answer); // Hier verwende ich answers. Es darf NICHT null sein.
+		answer.setQuestion(this);
 	}
 
 	public String getText() {

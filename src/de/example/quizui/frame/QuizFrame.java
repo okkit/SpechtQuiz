@@ -23,9 +23,13 @@ public class QuizFrame extends JFrame {
 	 */
 	public QuizFrame() {
 		initializeFrame();
+		
+		// Ein Quiz holen:
 		QuizDataManager mng = new FakeDataManager();
 		Quiz quiz = mng.getQuiz();
-		add(new RootPanel(quiz)); // Das Panel, das den Quiz anzeigt, bekommt nun die Daten.
+		
+//	Das Panel, das den Quiz anzeigt, bekommt nun die Daten.
+		add(new RootPanel(quiz)); 
 		setVisible(true);
 	}
 
