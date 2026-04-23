@@ -1,16 +1,41 @@
+/**
+ * @author ValentinaTikko
+ */
 package de.example.quizdata.objects;
 
+/**
+ * Die Klasse beschreibt das Objekt Answer.
+ */
 public class Answer {
 
 	private String text;
 	private boolean correct;
-	private Question question;
+	/**
+	 * Instanz der Klasse Question.<br>
+	 * Die Klasse Question aggregiert die Klasse Answer.
+	 */
+	private Question question; 
 
+	/**
+	 * Konstruiert eine Instanz der Klasse.<br>
+	 * Initialisiert das Feld text anhand des Parameters.<br>
+	 * Uninitialisert haben: <br>
+	 * das Feld text den wert null, das Feld correct den Wert false.
+	 * 
+	 * @param text
+	 */
 	public Answer(String text) {
 		super();
 		this.text = text;
 	}
 
+	/**
+	 * Konstruiert eine Instanz der Klasse.<br>
+	 * Initialisiert die Felder text und correct anhand der Parameter.
+	 * 
+	 * @param text
+	 * @param correct
+	 */
 	public Answer(String text, boolean correct) {
 		super();
 		this.text = text;
