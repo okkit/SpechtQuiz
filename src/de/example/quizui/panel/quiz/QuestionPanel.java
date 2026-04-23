@@ -16,8 +16,9 @@ public class QuestionPanel extends AppPanel {
 
     /**
      * Erstellt das Fragen-Panel.
+     * @param text 
      */
-    public QuestionPanel() {
+    public QuestionPanel(String text) {
         initializePanel();
         buildLayout();
     }

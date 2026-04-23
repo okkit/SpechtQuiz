@@ -26,6 +26,14 @@ public class FakeDataManager implements QuizDataManager {
 
 		for (int i = 0; i < fragenAnzahl; i++) {
 			Question frage = new Question("Frage " + i); // Eine neue Frage
+			// --------------------------------------------------------------------
+			// Die Klasse Question hat den Konstruktor: public Question(String text)
+			// Konstruktoraufruf: new Question("Frage " + i)
+			// Operator: new
+			// Instanz: new Question("Frage " + i)
+			// Instanz auf die Variable speichern: frage = new Question("Frage " + i)
+			// Somit ist die lokale Variable frage auch eine Instanz der Klasse Question.
+			// --------------------------------------------------------------------
 
 			zufallsJ = zufall.nextInt(antwortenAnzahl); // Zufallsindex der richtigen Antwort
 
