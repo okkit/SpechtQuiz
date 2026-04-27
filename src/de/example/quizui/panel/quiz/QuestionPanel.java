@@ -45,7 +45,7 @@ public class QuestionPanel extends AppPanel {
          questionLabel = new AppLabel(
                 "<html>Wie viele Methoden<br>kann eine Klasse haben?</html>"
         );
-
+         questionLabel.setForeground(Color.RED);
         add(questionLabel, BorderLayout.CENTER);
     }
 }

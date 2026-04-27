@@ -41,7 +41,7 @@ public class QuizFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(UIConstants.FRAME_DIMENSION);
 		setLocationRelativeTo(null);
-		setResizable(false);
+		setResizable(true);
 	}
 
 }

@@ -40,10 +40,10 @@ public class AnswerPanel extends AppPanel {
      * Baut die Antwortoptionen des Panels auf.
      */
     private void buildLayout() {
-        addAnswerOption("keine");
-        addAnswerOption("1");
-        addAnswerOption("64");
-        addAnswerOption("egal wie viele");
+        addAnswerOption("Answer 0");
+        addAnswerOption("Answer 1");
+        addAnswerOption("Answer 2");
+        addAnswerOption("Answer 3");
     }
 
     /**

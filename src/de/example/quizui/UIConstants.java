@@ -26,7 +26,7 @@ public abstract class UIConstants {
 	
 	// QuizFrame-Konstanten
 	public static final String APP_TITLE = "SpechtQuiz";
-	public static final Dimension FRAME_DIMENSION = new Dimension(900, 800);
+	public static final Dimension FRAME_DIMENSION = new Dimension(600, 600);
 
 	// QuestionPanel-Konstanten
 	public static final MatteBorder QP_MATTE_BORDER = BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(180, 180, 180));

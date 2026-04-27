@@ -5,17 +5,17 @@ import java.util.List;
 
 public class Question {
 
-	private String text; // Ohne Initialisierung null
-	private String info; // Ohne Initialisierung null
+	private String text;
+	private String info;
 	/**
-	 * Aggregation (Sammlung) der Instanzen der Klasse Answer, bzw der
-	 * Answer-Objekte.
+	 * Aggregation (Sammlung) der Instanzen der Klasse Answer, <br>
+	 * bzw der Answer-Objekte.
 	 */
-	private List<Answer> answers = new ArrayList<Answer>(); // Ohne Initialisierung null
+	private List<Answer> answers = new ArrayList<Answer>();
 
 	// Standardkonstruktor
 	public Question() {
-		super(); // super braucht man nicht, wir tun es dennoch, um NICHT die Mutter zu vergessen 
+		super();
 		answers = new ArrayList<Answer>();
 	}
 
@@ -32,7 +32,7 @@ public class Question {
 	public void addAnswer(Answer answer) {
 		if (answers == null)
 			answers = new ArrayList<Answer>();
-		answers.add(answer); // Hier verwende ich answers. Es darf NICHT null sein.
+		answers.add(answer);
 		answer.setQuestion(this);
 	}
 
