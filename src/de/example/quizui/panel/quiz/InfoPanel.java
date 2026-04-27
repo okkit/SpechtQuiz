@@ -15,13 +15,14 @@ import de.example.quizui.element.AppTextArea;
  */
 public class InfoPanel extends AppPanel {
 
+	 AppTextArea infoArea = new AppTextArea();
     /**
      * Erstellt das Info-Panel.
      */
     public InfoPanel() {
         initializePanel();
         buildLayout();
-    }
+        infoArea.setText("jklsadhvewuqhfrvew hfdjskahbcv egtrhe4uihqrcv egf");    }
 
     /**
      * Initialisiert Layout, Rahmen und Hintergrund des Panels.
@@ -40,41 +41,10 @@ public class InfoPanel extends AppPanel {
      */
     private void buildLayout() {
         AppLabel infoLabel = new AppLabel("Info:");
-
-        // TODO
-        // Schreibt die Klasse AppTextArea und verwendet diese hier 
-        // den Konstruktor der Klasse anstatt die Methode buildInfoArea() aufzurufen.
-        // LÖsung:
-//        das kommt weg: JTextArea infoArea = buildInfoArea();
-//        anstatt:
-        AppTextArea infoArea = new AppTextArea();
+       
         JScrollPane scrollPane = new JScrollPane(infoArea);
 
         add(infoLabel, BorderLayout.NORTH);
         add(scrollPane, BorderLayout.CENTER);
     }
-
-
-    // TODO. Dies all soll in den Knstruktor der neuen Klasse AppTextArea
-    // Die Methode kommt hier weg
-    // Das, was in der Methode gemacht wird, übernimmt die Klasse AppTextArea selbst.
-    // Wi eÜbernimmt sie das?
-    // 1. Variaente: alle set... im Konstruktor
-    // 2. Variante: die komplette Methode übernehmen und (!) anpassen
-//    private JTextArea buildInfoArea() {
-//    	
-//        JTextArea infoArea = new JTextArea();
-//        infoArea.setLineWrap(true);
-//        infoArea.setWrapStyleWord(true);
-//        infoArea.setEditable(false);
-//        infoArea.setFont(new Font("SansSerif", Font.PLAIN, 18));
-//        infoArea.setBackground(Color.WHITE);
-//        infoArea.setText(
-//                "Klassen in Java können beliebig viele Methoden enthalten.\n"
-//                        + "Die Anzahl ist grundsätzlich nicht fachlich auf 1, 64 oder 0 begrenzt.\n\n"
-//                        + "Diese Oberfläche bildet nur das Mockup nach.\n"
-//                        + "Logik, Auswertung und Persistenz sind bewusst nicht enthalten."
-//        );
-//        return infoArea;
-//    }
 }

@@ -6,6 +6,7 @@ import java.util.List;
 public class Question {
 
 	private String text;
+	private Subject subject;
 	private String info;
 	/**
 	 * Aggregation (Sammlung) der Instanzen der Klasse Answer, <br>
@@ -59,5 +60,15 @@ public class Question {
 	public void setAnswers(List<Answer> answers) {
 		this.answers = answers;
 	}
+
+	public Subject getSubject() {
+		return subject;
+	}
+
+	public void setSubject(Subject subject) {
+		this.subject = subject;
+	}
+	
+	
 
 }

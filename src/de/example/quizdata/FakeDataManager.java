@@ -4,6 +4,7 @@ import java.util.Random;
 
 import de.example.quizdata.objects.Question;
 import de.example.quizdata.objects.Quiz;
+import de.example.quizdata.objects.Subject;
 
 public class FakeDataManager implements QuizDataManager {
 
@@ -31,6 +32,8 @@ public class FakeDataManager implements QuizDataManager {
 		for (int i = 0; i < fragenAnzahl; i++) {
 			Question frage = new Question("Question " + i); 
 			q.addQuestion(frage);
+			
+			frage.setSubject(new Subject("Subject"));
 
 			zufallsJ = zufall.nextInt(antwortenAnzahl);
 			for (int j = 0; j < antwortenAnzahl; j++) {

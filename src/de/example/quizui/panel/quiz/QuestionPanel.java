@@ -14,38 +14,38 @@ import de.example.quizui.element.AppPanel;
  */
 public class QuestionPanel extends AppPanel {
 
-    private AppLabel questionLabel;
+	private AppLabel subjectLabel = new AppLabel("");
+	private AppLabel questionLabel = new AppLabel("");
 
 	/**
-     * Erstellt das Fragen-Panel.
-     * @param text 
-     */
-    public QuestionPanel(String text) {
-        initializePanel();
-        buildLayout();
-        questionLabel.setText(text);
-    }
+	 * Erstellt das Fragen-Panel.
+	 * 
+	 * @param subjecttitle
+	 * @param questiontext
+	 */
+	public QuestionPanel(String subjecttitle, String questiontext) {
+		initializePanel();
+		buildLayout();
+		subjectLabel.setText(subjecttitle);
+		questionLabel.setText(questiontext);
+	}
 
-    /**
-     * Initialisiert Layout, Rahmen und Hintergrund des Panels.
-     */
-    private void initializePanel() {
-        setLayout(new BorderLayout());
-        setBorder(BorderFactory.createCompoundBorder(
-                UIConstants.QP_MATTE_BORDER,
-                UIConstants.QP_EMPTY_BORDER
-        ));
-        setBackground(Color.WHITE);
-    }
+	/**
+	 * Initialisiert Layout, Rahmen und Hintergrund des Panels.
+	 */
+	private void initializePanel() {
+		setLayout(new BorderLayout());
+		setBorder(BorderFactory.createCompoundBorder(UIConstants.QP_MATTE_BORDER,
+				UIConstants.QP_EMPTY_BORDER));
+		setBackground(Color.WHITE);
+	}
 
-    /**
-     * Baut die enthaltenen Komponenten des Panels auf.
-     */
-    private void buildLayout() {
-         questionLabel = new AppLabel(
-                "<html>Wie viele Methoden<br>kann eine Klasse haben?</html>"
-        );
-         questionLabel.setForeground(Color.RED);
-        add(questionLabel, BorderLayout.CENTER);
-    }
+	/**
+	 * Baut die enthaltenen Komponenten des Panels auf.
+	 */
+	private void buildLayout() {
+
+		add(subjectLabel, BorderLayout.NORTH);
+		add(questionLabel, BorderLayout.SOUTH);
+	}
 }

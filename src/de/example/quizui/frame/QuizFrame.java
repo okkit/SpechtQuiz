@@ -24,7 +24,7 @@ public class QuizFrame extends JFrame {
 	public QuizFrame() {
 		initializeFrame();
 		
-		// Ein Quiz holen:
+// Ein Quiz holen:
 		QuizDataManager mng = new FakeDataManager();
 		Quiz quiz = mng.getQuiz();
 		
