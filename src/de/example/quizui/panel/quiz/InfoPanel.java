@@ -15,36 +15,39 @@ import de.example.quizui.element.AppTextArea;
  */
 public class InfoPanel extends AppPanel {
 
-	 AppTextArea infoArea = new AppTextArea();
-    /**
-     * Erstellt das Info-Panel.
-     */
-    public InfoPanel() {
-        initializePanel();
-        buildLayout();
-        infoArea.setText("jklsadhvewuqhfrvew hfdjskahbcv egtrhe4uihqrcv egf");    }
+	AppTextArea infoArea = new AppTextArea();
 
-    /**
-     * Initialisiert Layout, Rahmen und Hintergrund des Panels.
-     */
-    private void initializePanel() {
-        setLayout(new BorderLayout(0, 10));
-        setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(new Color(180, 180, 180), 1),
-                BorderFactory.createEmptyBorder(15, 15, 15, 15)
-        ));
-        setBackground(Color.WHITE);
-    }
+	/**
+	 * Erstellt das Info-Panel.
+	 * 
+	 * @param info
+	 */
+	public InfoPanel(String info) {
+		initializePanel();
+		buildLayout();
+		infoArea.setText(info);
+	}
 
-    /**
-     * Baut die enthaltenen Komponenten des Panels auf.
-     */
-    private void buildLayout() {
-        AppLabel infoLabel = new AppLabel("Info:");
-       
-        JScrollPane scrollPane = new JScrollPane(infoArea);
+	/**
+	 * Initialisiert Layout, Rahmen und Hintergrund des Panels.
+	 */
+	private void initializePanel() {
+		setLayout(new BorderLayout(0, 10));
+		setBorder(BorderFactory.createCompoundBorder(
+				BorderFactory.createLineBorder(new Color(180, 180, 180), 1),
+				BorderFactory.createEmptyBorder(15, 15, 15, 15)));
+		setBackground(Color.WHITE);
+	}
 
-        add(infoLabel, BorderLayout.NORTH);
-        add(scrollPane, BorderLayout.CENTER);
-    }
+	/**
+	 * Baut die enthaltenen Komponenten des Panels auf.
+	 */
+	private void buildLayout() {
+		AppLabel infoLabel = new AppLabel("Info:");
+
+		JScrollPane scrollPane = new JScrollPane(infoArea);
+
+		add(infoLabel, BorderLayout.NORTH);
+		add(scrollPane, BorderLayout.CENTER);
+	}
 }

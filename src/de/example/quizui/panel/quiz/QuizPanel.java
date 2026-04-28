@@ -12,6 +12,6 @@ public class QuizPanel extends AppPanel {
 		
 		add(new QuestionPanel(question.getSubject().getTitle(), question.getText()), BorderLayout.NORTH);
 		add(new AnswerPanel(), BorderLayout.CENTER);
-		add(new InfoPanel(), BorderLayout.SOUTH);
+		add(new InfoPanel(question.getInfo()), BorderLayout.SOUTH);
 	}
 }
