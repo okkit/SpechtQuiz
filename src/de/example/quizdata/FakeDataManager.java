@@ -31,7 +31,7 @@ public class FakeDataManager implements QuizDataManager {
 		quest.addAnswer(ans);
 		ans = new Answer("Laufvariable", false);
 		quest.addAnswer(ans);
-		ans = new Answer("Klassenvariable", false);
+		ans = new Answer("Klassenvariable", true);
 		quest.addAnswer(ans);
 		quest.setInfo(
 				"Um eine statische Variable verwenden zu können braucht man keine Instanz der Klasse.");
@@ -43,7 +43,7 @@ public class FakeDataManager implements QuizDataManager {
 
 		quest.addAnswer(new Answer("private", false));
 		quest.addAnswer(new Answer("stacic", false));
-		quest.addAnswer(new Answer("void", false));
+		quest.addAnswer(new Answer("void", true));
 		quest.addAnswer(new Answer("String", false));
 		quest.setInfo(
 				"Bei der Deklaration einer Methode muss der Datentyp des Rückgabewertes benannt werden.");

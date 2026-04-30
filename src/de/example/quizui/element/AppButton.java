@@ -1,9 +1,11 @@
 package de.example.quizui.element;
 
-import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
+
+import javax.swing.JButton;
+
+import de.example.quizui.UIConstants;
 
 /**
  * Generalisierte Basisklasse für Buttons der Anwendung.
@@ -25,9 +27,9 @@ public class AppButton extends JButton {
      */
     private void initialize() {
         setFocusPainted(false);
-        setFont(new Font("SansSerif", Font.BOLD, 16));
+        setFont(UIConstants.FONT_TEXT);
         setBackground(new Color(230, 230, 230));
-        setForeground(Color.BLACK);
-        setPreferredSize(new Dimension(140, 40));
+        setForeground(UIConstants.TEXT_COLOR_STANDARD);
+        setPreferredSize(new Dimension(200, 30));
     }
 }

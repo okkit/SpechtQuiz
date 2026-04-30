@@ -2,6 +2,8 @@ package de.example.quizui.panel;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.LayoutManager;
 
 import javax.swing.BorderFactory;
 
@@ -10,13 +12,22 @@ import de.example.quizdata.objects.Quiz;
 import de.example.quizui.element.AppPanel;
 import de.example.quizui.panel.header.HeaderPanel;
 import de.example.quizui.panel.quiz.QuizPanel;
-
+/**
+ * Das Panel hält zwei separate Bereiche: Header und Quiz;<br>
+ * Hält auch die Daten = den Quiz, der gespielt werden soll.
+ */
 public class RootPanel extends AppPanel {
+
+	private HeaderPanel headerPanel;
 
 	public RootPanel(Quiz quiz) {
 		super(new BorderLayout(0, 15));
-	
-		add(new HeaderPanel(), BorderLayout.NORTH);
+
+		int questionCount = quiz.getQuestions().size();
+		
+		headerPanel = new HeaderPanel(questionCount);
+		add(headerPanel, BorderLayout.NORTH);
+		
 		Question question = null;
 		if (quiz.getQuestions() != null && quiz.getQuestions().size() > 0)
 			question = quiz.getQuestions().get(0);
@@ -24,10 +35,10 @@ public class RootPanel extends AppPanel {
 		add(new QuizPanel(question), BorderLayout.CENTER);
 	}
 	
+	@Override
     protected void initialize() {
     	super.initialize();
-    	setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-		setBackground(new Color(245, 245, 245));
+		setBackground(Color.DARK_GRAY);
     }
 
 }

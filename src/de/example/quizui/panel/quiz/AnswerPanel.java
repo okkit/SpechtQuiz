@@ -2,9 +2,11 @@ package de.example.quizui.panel.quiz;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.util.List;
 
 import javax.swing.ButtonGroup;
 
+import de.example.quizdata.objects.Answer;
 import de.example.quizui.UIConstants;
 import de.example.quizui.element.AppPanel;
 import de.example.quizui.element.AppRadioButton;
@@ -14,46 +16,52 @@ import de.example.quizui.element.AppRadioButton;
  */
 public class AnswerPanel extends AppPanel {
 
-    /**
-     * Gruppiert die Radio-Buttons, damit nur eine Antwort auswählbar ist.
-     */
-    private final ButtonGroup buttonGroup = new ButtonGroup();
+	/**
+	 * Gruppiert die Radio-Buttons, damit nur eine Antwort auswählbar ist.
+	 */
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+	List<Answer> list;
 
-    /**
-     * Erstellt das Antwort-Panel.
-     */
-    public AnswerPanel() {
-        initializePanel();
-        buildLayout();
-    }
+	/**
+	 * Erstellt das Antwort-Panel.
+	 * 
+	 * @param list
+	 */
+	public AnswerPanel(List<Answer> list) {
 
-    /**
-     * Initialisiert Layout, Rahmen und Hintergrund des Panels.
-     */
-    private void initializePanel() {
-        setLayout(new GridLayout(4, 1, 0, 18));
-        setBorder(UIConstants.AP_EMPTY_BORDER);
-        setBackground(Color.WHITE);
-    }
+		this.list = list;
+		initializePanel();
+		buildLayout();
+	}
 
-    /**
-     * Baut die Antwortoptionen des Panels auf.
-     */
-    private void buildLayout() {
-        addAnswerOption("Answer 0");
-        addAnswerOption("Answer 1");
-        addAnswerOption("Answer 2");
-        addAnswerOption("Answer 3");
-    }
+	/**
+	 * Initialisiert Layout, Rahmen und Hintergrund des Panels.
+	 */
+	private void initializePanel() {
+		setLayout(new GridLayout(4, 1, 0, 18));
+		setBorder(UIConstants.AP_EMPTY_BORDER);
+		setBackground(Color.WHITE);
+	}
 
-    /**
-     * Fügt dem Panel eine einzelne Antwortoption hinzu.
-     *
-     * @param text Beschriftung der Antwortoption
-     */
-    private void addAnswerOption(String text) {
-        AppRadioButton radioButton = new AppRadioButton(text);
-        buttonGroup.add(radioButton);
-        add(radioButton);
-    }
+	/**
+	 * Baut die Antwortoptionen des Panels auf.
+	 */
+	private void buildLayout() {
+		// für jedes anser aus list tu:
+		for (Answer answer : list) {
+			addAnswerOption(answer.getText());
+		}
+
+	}
+
+	/**
+	 * Fügt dem Panel eine einzelne Antwortoption hinzu.
+	 *
+	 * @param text Beschriftung der Antwortoption
+	 */
+	private void addAnswerOption(String text) {
+		AppRadioButton radioButton = new AppRadioButton(text);
+		buttonGroup.add(radioButton);
+		add(radioButton);
+	}
 }

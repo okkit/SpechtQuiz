@@ -5,13 +5,13 @@ import java.awt.BorderLayout;
 import de.example.quizdata.objects.Question;
 import de.example.quizui.element.AppPanel;
 
-public class QuizPanel extends AppPanel {
+public class QuizPanel extends AppPanel{
 
 	public QuizPanel(Question question) {
 		super(new BorderLayout(0, 15));
 		
 		add(new QuestionPanel(question.getSubject().getTitle(), question.getText()), BorderLayout.NORTH);
-		add(new AnswerPanel(), BorderLayout.CENTER);
+		add(new AnswerPanel(question.getAnswers()), BorderLayout.CENTER);
 		add(new InfoPanel(question.getInfo()), BorderLayout.SOUTH);
 	}
 }

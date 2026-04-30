@@ -18,12 +18,14 @@ import de.example.quizui.element.AppPanel;
  */
 public class HeaderPanel extends AppPanel {
 
+	AppBigLabel questionCounterLabel;
 	/**
 	 * Erstellt das Kopfbereich-Panel.
+	 * @param count = Anzahl der Fragen im Quiz
 	 */
-	public HeaderPanel() {
+	public HeaderPanel(int count) {
 		initializePanel();
-		buildLayout();
+		buildLayout(count);
 	}
 
 	/**
@@ -38,9 +40,9 @@ public class HeaderPanel extends AppPanel {
 	/**
 	 * Baut die enthaltenen Komponenten des Panels auf.
 	 */
-	private void buildLayout() {
-		AppBigLabel questionCounterLabel = new AppBigLabel("Frage 10 / 16");
-		AppBigLabel scoreLabel = new AppBigLabel("Richtig: 2 / 10", SwingConstants.RIGHT);
+	private void buildLayout(int count) {
+		questionCounterLabel = new AppBigLabel("Frage 1");
+		AppBigLabel scoreLabel = new AppBigLabel("Richtig: 0 / " + count, SwingConstants.RIGHT);
 
 		add(questionCounterLabel, BorderLayout.WEST);
 		add(scoreLabel, BorderLayout.EAST);
