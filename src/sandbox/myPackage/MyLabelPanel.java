@@ -15,6 +15,14 @@ public class MyLabelPanel extends JPanel {
 		initLayout();
 		initComponents();
 	}
+	
+	/**
+	 * Aktualisiert das Label
+	 * @param count
+	 */
+	public void updateCounter(int count) {
+		label.setText("Counter " + count);
+	}
 
 	private void initComponents() {
 		label = new MyLabel("Label für den Counter");

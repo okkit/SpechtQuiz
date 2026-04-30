@@ -7,7 +7,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-public class MyRootPanel extends JPanel {
+public class MyRootPanel extends JPanel implements MyButtonPanelDelegate{
 	
 	MyLabelPanel labelPanel;
 	MyButtonPanel buttonPanel;
@@ -26,6 +26,7 @@ public class MyRootPanel extends JPanel {
 		add(Box.createVerticalStrut(10));
 		buttonPanel = new MyButtonPanel();
 		add(buttonPanel);
+		buttonPanel.delegate = this;
 		
 		add(Box.createVerticalStrut(10));
 		add(new TimerPanel());
@@ -37,5 +38,18 @@ public class MyRootPanel extends JPanel {
 		setLayout(box);
 		setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		setBackground(new Color(217, 242, 208));
+	}
+	
+	/**
+	 * Veranlasst das LabelPanel sein Label zu aktuallisieren
+	 * @param count
+	 */
+	public void updateCounter(int count) {
+		labelPanel.updateCounter(count);
+	}
+
+	@Override
+	public void updateAfterButtonPanelChanged(int count) {	
+		labelPanel.updateCounter(count);
 	}
 }
