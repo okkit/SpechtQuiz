@@ -19,6 +19,11 @@ import de.example.quizui.panel.quiz.QuizPanel;
 public class RootPanel extends AppPanel {
 
 	private HeaderPanel headerPanel;
+	private QuizPanel quizPanel;
+	
+//	List<Component> component; 
+//	Das Feld component gehört der Klasse Container
+//	Container ist die super.super...superKlasse des RootPanels 
 
 	public RootPanel(Quiz quiz) {
 		super(new BorderLayout(0, 15));
@@ -27,12 +32,14 @@ public class RootPanel extends AppPanel {
 		
 		headerPanel = new HeaderPanel(questionCount);
 		add(headerPanel, BorderLayout.NORTH);
+		// component.add(headerPanel);
 		
 		Question question = null;
 		if (quiz.getQuestions() != null && quiz.getQuestions().size() > 0)
 			question = quiz.getQuestions().get(0);
 		
-		add(new QuizPanel(question), BorderLayout.CENTER);
+		quizPanel = new QuizPanel(question);
+		add(quizPanel, BorderLayout.CENTER);
 	}
 	
 	@Override

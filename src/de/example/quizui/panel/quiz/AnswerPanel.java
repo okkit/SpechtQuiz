@@ -2,6 +2,8 @@ package de.example.quizui.panel.quiz;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.ButtonGroup;
@@ -16,11 +18,8 @@ import de.example.quizui.element.AppRadioButton;
  */
 public class AnswerPanel extends AppPanel {
 
-	/**
-	 * Gruppiert die Radio-Buttons, damit nur eine Antwort auswählbar ist.
-	 */
-	private final ButtonGroup buttonGroup = new ButtonGroup();
 	List<Answer> list;
+	List<AppRadioButton> radioButtons;
 
 	/**
 	 * Erstellt das Antwort-Panel.
@@ -30,6 +29,7 @@ public class AnswerPanel extends AppPanel {
 	public AnswerPanel(List<Answer> list) {
 
 		this.list = list;
+		radioButtons = new ArrayList<AppRadioButton>(list.size());
 		initializePanel();
 		buildLayout();
 	}
@@ -47,21 +47,35 @@ public class AnswerPanel extends AppPanel {
 	 * Baut die Antwortoptionen des Panels auf.
 	 */
 	private void buildLayout() {
-		// für jedes anser aus list tu:
-		for (Answer answer : list) {
-			addAnswerOption(answer.getText());
-		}
+		ButtonGroup buttonGroup = new ButtonGroup();
 
+		for (Answer answer : list) {
+			AppRadioButton radioButton = new AppRadioButton(answer.getText());
+			buttonGroup.add(radioButton);
+			radioButtons.add(radioButton);
+			add(radioButton);
+
+			radioButton.addActionListener(e -> checkAnswer(e, answer.isCorrect()));
+		}
 	}
 
-	/**
-	 * Fügt dem Panel eine einzelne Antwortoption hinzu.
-	 *
-	 * @param text Beschriftung der Antwortoption
-	 */
-	private void addAnswerOption(String text) {
-		AppRadioButton radioButton = new AppRadioButton(text);
-		buttonGroup.add(radioButton);
-		add(radioButton);
+	public void checkAnswer(ActionEvent e, boolean correct) {
+
+		if (e.getSource() instanceof AppRadioButton) {
+			AppRadioButton rb = (AppRadioButton) e.getSource();
+			System.out.println(rb.getText() + " ist " + correct);
+			// Schrift grühn, wenn Korrekt, sonst rot
+
+			if (correct)
+				rb.setForeground(Color.GREEN);
+			else {
+				rb.setForeground(Color.RED);
+				for (int i = 0; i < radioButtons.size(); i++) {
+					if (list.get(i).isCorrect())
+						radioButtons.get(i).setForeground(Color.GREEN);
+				}
+			}
+
+		}
 	}
 }

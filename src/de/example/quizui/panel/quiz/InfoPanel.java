@@ -2,15 +2,11 @@ package de.example.quizui.panel.quiz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
-import javax.swing.UIManager;
 
-import de.example.quizui.UIConstants;
 import de.example.quizui.element.AppButton;
 import de.example.quizui.element.AppPanel;
 import de.example.quizui.element.AppTextArea;
@@ -18,9 +14,9 @@ import de.example.quizui.element.AppTextArea;
 /**
  * Panel für zusätzliche Informationen zur aktuellen Frage oder Antwort.
  */
-public class InfoPanel extends AppPanel implements ActionListener{
+public class InfoPanel extends AppPanel {
 
-	AppTextArea infoArea = new AppTextArea();
+	AppTextArea infoArea;
 
 	/**
 	 * Erstellt das Info-Panel.
@@ -49,51 +45,25 @@ public class InfoPanel extends AppPanel implements ActionListener{
 	 * Baut die enthaltenen Komponenten des Panels auf.
 	 */
 	private void buildLayout() {
-		
+
 		AppButton buttonHint = new AppButton("Info anzeigen");
-		buttonHint.addActionListener(this);
-		buttonHint.setActionCommand("Info");
-		
-		AppButton buttonNext = new AppButton("Nächste Frage");
-		buttonNext.addActionListener(this);
-		buttonNext.addActionListener(_ -> nextQuestion());
-		
 		add(buttonHint, BorderLayout.WEST);
+		buttonHint.addActionListener(e -> {
+			infoArea.setVisible(true);
+		});
+
+		AppButton buttonNext = new AppButton("Nächste Frage");
 		add(buttonNext, BorderLayout.EAST);
-	
+		buttonNext.addActionListener(e -> nextQuestion());
+
+		infoArea = new AppTextArea();
 		JScrollPane scrollPane = new JScrollPane(infoArea);
 		add(scrollPane, BorderLayout.SOUTH);
 	}
-	
+
 	private void nextQuestion() {
 		
-		// TODO heute: Nächste Frage Anzeigen
-		UIManager.put("OptionPane.background", Color.DARK_GRAY);
-		UIManager.put("Panel.background", Color.DARK_GRAY);
-		UIManager.put("OptionPane.messageForeground", Color.WHITE);
-		UIManager.put("OptionPane.messageFont", UIConstants.FONT_TEXT);
-		UIManager.put("Button.background", Color.WHITE);
-		UIManager.put("Button.foreground", Color.BLACK);
-		UIManager.put("Button.focusable", false);
-		JOptionPane.showMessageDialog(this, "Noch nicht implementiert!");
-		
-	}
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-		String command = e.getActionCommand();
-		
-		if (command.equals("Info")) {
-			infoArea.setVisible(true);
-		}
+		JOptionPane.showMessageDialog(null, "Noch nicht da");
+
 	}
 }
-
-
-
-
-
-
-
-

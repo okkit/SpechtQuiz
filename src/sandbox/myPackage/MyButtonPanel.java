@@ -14,7 +14,7 @@ public class MyButtonPanel extends JPanel {
 
 	MyButton button;
 	// AUFGABE:
-	// MyTextField textField;
+//	MyTextField textField;
 	// Nach dem Klicken von Button zeigt das Label auf dem LabelPanel den eingegebenen Text;
 	int count = 0;
 

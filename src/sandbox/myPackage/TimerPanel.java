@@ -44,7 +44,7 @@ public class TimerPanel extends JPanel {
 			}
 		}, 1000, 1000);
 
-		javax.swing.Timer timer = new javax.swing.Timer(1000, _->{timerLabel2.setText(clockTime(count2++));});
+		javax.swing.Timer timer = new javax.swing.Timer(1000, e->{timerLabel2.setText(clockTime(count2++));});
 		timer.start();
 		
 	}
