@@ -21,6 +21,11 @@ public class AnswerPanel extends AppPanel {
 
 	List<Answer> list;
 	List<AppRadioButton> radioButtons;
+	ButtonGroup buttonGroup;
+	/**
+	 * Das Feld answered
+	 */
+	private boolean answered = false; 
 
 	/**
 	 * Erstellt das Antwort-Panel.
@@ -48,27 +53,29 @@ public class AnswerPanel extends AppPanel {
 	 * Baut die Antwortoptionen des Panels auf.
 	 */
 	private void buildLayout() {
-		ButtonGroup buttonGroup = new ButtonGroup();
+		buttonGroup = new ButtonGroup();
 
 		for (Answer answer : list) {
-			AppRadioButton radioButton = new AppRadioButton(answer.getText());
+			AppRadioButton radioButton = new AppRadioButton(answer);
 			buttonGroup.add(radioButton);
 			radioButtons.add(radioButton);
 			add(radioButton);
-			radioButton.addActionListener(e -> checkAnswer(e, answer.isCorrect()));
+			radioButton.addActionListener(e -> checkAnswer(e));
 		}
 	}
-	
+
 	public void showNextQuestion(List<Answer> answers) {
+
+		answered = false;
+		buttonGroup.clearSelection();
+
 		for (int i = 0; i < radioButtons.size(); i++) {
 			AppRadioButton radioButton = radioButtons.get(i);
 			Answer ans = answers.get(i);
-			
-			radioButton.setText(ans.getText());
-		}	
+			radioButton.setAnswer(ans);
+		}
 	}
 
-	private boolean answered = false;
 	/**
 	 * Managet das Geschehen nach dem ein der Radiobuttuns wurde geklickt.<br>
 	 * Entspricht der Radiobutton der richtigen Antwort, wird die Antwort grün
@@ -79,7 +86,7 @@ public class AnswerPanel extends AppPanel {
 	 * @param e       der Eventauslöser
 	 * @param correct ob dem Eventauslöser die richtige Antwort entspricht.
 	 */
-	public void checkAnswer(ActionEvent e, boolean correct) {
+	public void checkAnswer(ActionEvent e) {
 
 		if (e.getSource() instanceof AppRadioButton) {
 
@@ -92,7 +99,7 @@ public class AnswerPanel extends AppPanel {
 
 			AppRadioButton rb = (AppRadioButton) e.getSource();
 
-			if (correct)
+			if (rb.isCorrect())
 				rb.setForeground(Color.GREEN);
 			else {
 				rb.setForeground(Color.RED);

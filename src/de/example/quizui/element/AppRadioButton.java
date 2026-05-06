@@ -1,6 +1,9 @@
 package de.example.quizui.element;
 
 import javax.swing.JRadioButton;
+
+import de.example.quizdata.objects.Answer;
+
 import java.awt.Color;
 import java.awt.Font;
 
@@ -9,23 +12,21 @@ import java.awt.Font;
  */
 public class AppRadioButton extends JRadioButton {
 
+	Answer answer;
+
 	/**
 	 * Erstellt einen Radio-Button mit Text.
 	 *
-	 * @param text anzuzeigender Text
+	 * @param answer Anser-Object
 	 */
-	public AppRadioButton(String text) {
-		super(text);
+	public AppRadioButton(Answer answer) {
+		super(answer.getText());
+		this.answer = answer;
 		initialize();
 	}
 
-	public void setEnabled(boolean enabled) {
-		super.setEnabled(enabled);
-		Color c = getForeground();
-		String color = Integer.toHexString(c.getRed()) + Integer.toHexString(c.getGreen())
-				+ Integer.toHexString(c.getBlue());
-		String prefix = "<html><body style='color: #" + color + ";'>";
-		setText(prefix + getText());
+	public boolean isCorrect() {
+		return answer.isCorrect();
 	}
 
 	/**
@@ -37,4 +38,25 @@ public class AppRadioButton extends JRadioButton {
 		setForeground(new Color(40, 40, 40));
 		setFocusPainted(false);
 	}
+
+	public void setAnswer(Answer ans) {
+		answer = ans;
+		setSelected(false);
+		setForeground(Color.BLACK);
+		setText(answer.getText());
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
