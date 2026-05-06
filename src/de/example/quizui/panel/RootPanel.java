@@ -2,10 +2,7 @@ package de.example.quizui.panel;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.LayoutManager;
-
-import javax.swing.BorderFactory;
+import java.util.List;
 
 import de.example.quizdata.objects.Question;
 import de.example.quizdata.objects.Quiz;
@@ -32,20 +29,17 @@ public class RootPanel extends AppPanel {
 		
 		headerPanel = new HeaderPanel(questionCount);
 		add(headerPanel, BorderLayout.NORTH);
-		// component.add(headerPanel);
+	
+		List<Question> liste = quiz.getQuestions();
 		
-		Question question = null;
-		if (quiz.getQuestions() != null && quiz.getQuestions().size() > 0)
-			question = quiz.getQuestions().get(0);
-		
-		quizPanel = new QuizPanel(question);
+		quizPanel = new QuizPanel(liste);
 		add(quizPanel, BorderLayout.CENTER);
 	}
+	
 	
 	@Override
     protected void initialize() {
     	super.initialize();
-		setBackground(Color.DARK_GRAY);
+		setBackground(new Color(217, 242, 208));
     }
-
 }

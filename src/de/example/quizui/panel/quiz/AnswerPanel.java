@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 
 import de.example.quizdata.objects.Answer;
 import de.example.quizui.UIConstants;
@@ -54,17 +55,42 @@ public class AnswerPanel extends AppPanel {
 			buttonGroup.add(radioButton);
 			radioButtons.add(radioButton);
 			add(radioButton);
-
 			radioButton.addActionListener(e -> checkAnswer(e, answer.isCorrect()));
 		}
 	}
+	
+	public void showNextQuestion(List<Answer> answers) {
+		for (int i = 0; i < radioButtons.size(); i++) {
+			AppRadioButton radioButton = radioButtons.get(i);
+			Answer ans = answers.get(i);
+			
+			radioButton.setText(ans.getText());
+		}	
+	}
 
+	private boolean answered = false;
+	/**
+	 * Managet das Geschehen nach dem ein der Radiobuttuns wurde geklickt.<br>
+	 * Entspricht der Radiobutton der richtigen Antwort, wird die Antwort grün
+	 * markiert.<br>
+	 * Ist die Antwort falsch, wird sie rot markiert und die richtige grün.<br>
+	 * Alle weitere Klicks werden ignoriert.
+	 * 
+	 * @param e       der Eventauslöser
+	 * @param correct ob dem Eventauslöser die richtige Antwort entspricht.
+	 */
 	public void checkAnswer(ActionEvent e, boolean correct) {
 
 		if (e.getSource() instanceof AppRadioButton) {
+
+			if (answered) {
+				JOptionPane.showMessageDialog(null,
+						"Du hast die Antwort bereits ausgewählt ;-)\n Neue Wahl wird nicht berücksichtigt.");
+				return;
+			}
+			answered = true;
+
 			AppRadioButton rb = (AppRadioButton) e.getSource();
-			System.out.println(rb.getText() + " ist " + correct);
-			// Schrift grühn, wenn Korrekt, sonst rot
 
 			if (correct)
 				rb.setForeground(Color.GREEN);
@@ -75,7 +101,7 @@ public class AnswerPanel extends AppPanel {
 						radioButtons.get(i).setForeground(Color.GREEN);
 				}
 			}
-
 		}
 	}
+
 }

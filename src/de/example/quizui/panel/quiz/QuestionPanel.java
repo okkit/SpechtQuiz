@@ -48,4 +48,9 @@ public class QuestionPanel extends AppPanel {
 		add(subjectLabel, BorderLayout.NORTH);
 		add(questionLabel, BorderLayout.SOUTH);
 	}
+
+	public void showNextQuestion(String text) {
+		questionLabel.setText(text);
+		
+	}
 }

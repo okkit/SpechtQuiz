@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.BorderFactory;
-import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 
 import de.example.quizui.element.AppButton;
@@ -16,7 +15,8 @@ import de.example.quizui.element.AppTextArea;
  */
 public class InfoPanel extends AppPanel {
 
-	AppTextArea infoArea;
+	private AppTextArea infoArea;
+	QuizPanel chef;
 
 	/**
 	 * Erstellt das Info-Panel.
@@ -29,6 +29,11 @@ public class InfoPanel extends AppPanel {
 		infoArea.setText(info);
 		infoArea.setVisible(false);
 	}
+	
+	public void showNextQuestion(String info) {
+		infoArea.setText(info);
+	}
+
 
 	/**
 	 * Initialisiert Layout, Rahmen und Hintergrund des Panels.
@@ -62,8 +67,6 @@ public class InfoPanel extends AppPanel {
 	}
 
 	private void nextQuestion() {
-		
-		JOptionPane.showMessageDialog(null, "Noch nicht da");
-
+		chef.pleaseNextQuestion();
 	}
 }

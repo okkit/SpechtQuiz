@@ -9,23 +9,32 @@ import java.awt.Font;
  */
 public class AppRadioButton extends JRadioButton {
 
-    /**
-     * Erstellt einen Radio-Button mit Text.
-     *
-     * @param text anzuzeigender Text
-     */
-    public AppRadioButton(String text) {
-        super(text);
-        initialize();
-    }
+	/**
+	 * Erstellt einen Radio-Button mit Text.
+	 *
+	 * @param text anzuzeigender Text
+	 */
+	public AppRadioButton(String text) {
+		super(text);
+		initialize();
+	}
 
-    /**
-     * Initialisiert gemeinsame Basiseigenschaften des Radio-Buttons.
-     */
-    private void initialize() {
-        setOpaque(false);
-        setFont(new Font("SansSerif", Font.PLAIN, 20));
-        setForeground(new Color(40, 40, 40));
-        setFocusPainted(false);
-    }
+	public void setEnabled(boolean enabled) {
+		super.setEnabled(enabled);
+		Color c = getForeground();
+		String color = Integer.toHexString(c.getRed()) + Integer.toHexString(c.getGreen())
+				+ Integer.toHexString(c.getBlue());
+		String prefix = "<html><body style='color: #" + color + ";'>";
+		setText(prefix + getText());
+	}
+
+	/**
+	 * Initialisiert gemeinsame Basiseigenschaften des Radio-Buttons.
+	 */
+	private void initialize() {
+		setOpaque(false);
+		setFont(new Font("SansSerif", Font.PLAIN, 20));
+		setForeground(new Color(40, 40, 40));
+		setFocusPainted(false);
+	}
 }
