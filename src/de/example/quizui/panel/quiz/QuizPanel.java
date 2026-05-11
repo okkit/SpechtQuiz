@@ -7,10 +7,11 @@ import javax.swing.JOptionPane;
 
 import de.example.quizdata.objects.Question;
 import de.example.quizui.element.AppPanel;
+import de.example.quizui.panel.NextQuestionInterface;
 import de.example.quizui.panel.QuestionNumberUpdater;
 import de.example.quizui.panel.header.HeaderPanel;
 
-public class QuizPanel extends AppPanel {
+public class QuizPanel extends AppPanel implements NextQuestionInterface{
 
 	/**
 	 * Liste aller Fragen im aktuellen Quiz-Spiel
@@ -42,6 +43,7 @@ public class QuizPanel extends AppPanel {
 		infoPanel.chef = this;
 	}
 
+	@Override
 	public void pleaseNextQuestion() {
 
 		if (questionNumber == questions.size() - 1) {

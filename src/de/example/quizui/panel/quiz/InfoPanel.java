@@ -9,6 +9,7 @@ import javax.swing.JScrollPane;
 import de.example.quizui.element.AppButton;
 import de.example.quizui.element.AppPanel;
 import de.example.quizui.element.AppTextArea;
+import de.example.quizui.panel.NextQuestionInterface;
 
 /**
  * Panel für zusätzliche Informationen zur aktuellen Frage oder Antwort.
@@ -16,7 +17,7 @@ import de.example.quizui.element.AppTextArea;
 public class InfoPanel extends AppPanel {
 
 	private AppTextArea infoArea;
-	QuizPanel chef;
+	NextQuestionInterface chef;
 
 	/**
 	 * Erstellt das Info-Panel.
