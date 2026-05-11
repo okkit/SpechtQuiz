@@ -12,3 +12,6 @@ Hinweise (aus dem Promt für ChatGPT):
 - Generalisierte Swing-Komponenten als eigene Klassen
 - Layout-Aufbau in separaten Methoden
 - Alle Klassen mit Javadoc versehen
+
+Mockup:<br>
+![Mockup "Frage erstellen"](https://github.com/okkit/OkkitQ/blob/main/doc/ZumTubFragenErstellen.png)
