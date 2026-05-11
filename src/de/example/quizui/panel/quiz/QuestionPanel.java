@@ -6,15 +6,15 @@ import java.awt.Color;
 import javax.swing.BorderFactory;
 
 import de.example.quizui.UIConstants;
-import de.example.quizui.element.AppLabel;
 import de.example.quizui.element.AppPanel;
+import de.example.quizui.element.QuestionArea;
 
 /**
  * Panel für die Anzeige der aktuellen Frage.
  */
 public class QuestionPanel extends AppPanel {
 
-	private AppLabel questionLabel = new AppLabel("");
+	private QuestionArea questionArea = new QuestionArea();
 
 	/**
 	 * Erstellt das Fragen-Panel.
@@ -22,10 +22,10 @@ public class QuestionPanel extends AppPanel {
 	 * @param subjecttitle
 	 * @param questiontext
 	 */
-	public QuestionPanel( String questiontext) {
+	public QuestionPanel(String questiontext) {
 		initializePanel();
 		buildLayout();
-		questionLabel.setText(questiontext);
+		questionArea.setText(questiontext);
 	}
 
 	/**
@@ -43,11 +43,11 @@ public class QuestionPanel extends AppPanel {
 	 */
 	private void buildLayout() {
 
-		add(questionLabel, BorderLayout.LINE_START);
+		add(questionArea);
 	}
 
 	public void showNextQuestion(String text) {
-		questionLabel.setText(text);
+		questionArea.setText(text);
 		
 	}
 }
