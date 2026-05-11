@@ -9,6 +9,7 @@ import de.example.quizui.UIConstants;
 import de.example.quizui.element.AppBigLabel;
 import de.example.quizui.element.AppPanel;
 import de.example.quizui.panel.AnswerPanelListener;
+import de.example.quizui.panel.QuestionNumberUpdater;
 
 /**
  * Panel für den oberen Kopfbereich der Oberfläche.
@@ -17,7 +18,7 @@ import de.example.quizui.panel.AnswerPanelListener;
  * beantworteten Fragen an.
  * </p>
  */
-public class HeaderPanel extends AppPanel implements AnswerPanelListener{
+public class HeaderPanel extends AppPanel implements AnswerPanelListener, QuestionNumberUpdater{
 	
 
 	private AppBigLabel questionCounterLabel;
@@ -56,6 +57,7 @@ public class HeaderPanel extends AppPanel implements AnswerPanelListener{
 		add(scoreLabel, BorderLayout.EAST);
 	}
 	
+	@Override
 	public void updateQuestionNumber(int number) {
 		questionCounterLabel.setText("Frage " + (number + 1));
 	}

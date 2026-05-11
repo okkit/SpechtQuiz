@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 
 import de.example.quizdata.objects.Question;
 import de.example.quizui.element.AppPanel;
+import de.example.quizui.panel.QuestionNumberUpdater;
 import de.example.quizui.panel.header.HeaderPanel;
 
 public class QuizPanel extends AppPanel {
@@ -19,7 +20,8 @@ public class QuizPanel extends AppPanel {
 	private QuestionPanel questionPanel;
 	private AnswerPanel answerPanel;
 	
-	public HeaderPanel questionNumberUpdater;
+	public QuestionNumberUpdater questionNumberUpdater;
+	int questionNumber = 0;
 
 	public QuizPanel(List<Question> questions, HeaderPanel header) { ////////////////////
 		super(new BorderLayout(0, 15));
@@ -40,19 +42,15 @@ public class QuizPanel extends AppPanel {
 		infoPanel.chef = this;
 	}
 
-	int questionNumber = 0;
-
 	public void pleaseNextQuestion() {
 
 		if (questionNumber == questions.size() - 1) {
 			JOptionPane.showMessageDialog(null, "Game over\nKeine weiteren Fragen");
 			return;
 		}
-
-		questionNumber++;
-		
+		questionNumber++;	
 		// HeadPanel muss benachrichtigt werden!
-		questionNumberUpdater.updateQuestionNumber(questionNumber);
+		questionNumberUpdater.updateQuestionNumber(questionNumber); //*******************************
 		
 		Question nextQuestion = questions.get(questionNumber);	
 		// Infotext auf dem InfoPanel austaueschen
