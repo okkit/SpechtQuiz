@@ -13,5 +13,5 @@ Hinweise (aus dem Promt für ChatGPT):
 - Layout-Aufbau in separaten Methoden
 - Alle Klassen mit Javadoc versehen
 
-Mockup:<br>
-![Mockup "Frage erstellen"](https://github.com/okkit/OkkitQ/blob/main/doc/ZumTubFragenErstellen.png)
+Result:<br>
+![Result](https://github.com/okkit/SpechtQuiz/blob/main/doc/Result.png)
