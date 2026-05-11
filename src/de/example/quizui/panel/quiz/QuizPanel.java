@@ -28,7 +28,7 @@ public class QuizPanel extends AppPanel {
 		// TODO check for questions == null and questions.size() == 0;
 		Question question = questions.get(0);
 
-		questionPanel = new QuestionPanel(question.getSubject().getTitle(), question.getText());
+		questionPanel = new QuestionPanel(question.getText());
 		add(questionPanel, BorderLayout.NORTH);
 
 		answerPanel = new AnswerPanel(question.getAnswers());

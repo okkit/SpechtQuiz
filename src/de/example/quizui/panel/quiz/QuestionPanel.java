@@ -14,7 +14,6 @@ import de.example.quizui.element.AppPanel;
  */
 public class QuestionPanel extends AppPanel {
 
-	private AppLabel subjectLabel = new AppLabel("");
 	private AppLabel questionLabel = new AppLabel("");
 
 	/**
@@ -23,10 +22,9 @@ public class QuestionPanel extends AppPanel {
 	 * @param subjecttitle
 	 * @param questiontext
 	 */
-	public QuestionPanel(String subjecttitle, String questiontext) {
+	public QuestionPanel( String questiontext) {
 		initializePanel();
 		buildLayout();
-		subjectLabel.setText(subjecttitle);
 		questionLabel.setText(questiontext);
 	}
 
@@ -45,8 +43,7 @@ public class QuestionPanel extends AppPanel {
 	 */
 	private void buildLayout() {
 
-		add(subjectLabel, BorderLayout.NORTH);
-		add(questionLabel, BorderLayout.SOUTH);
+		add(questionLabel, BorderLayout.LINE_START);
 	}
 
 	public void showNextQuestion(String text) {

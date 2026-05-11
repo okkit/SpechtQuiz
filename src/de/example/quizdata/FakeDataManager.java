@@ -5,7 +5,6 @@ import java.util.Random;
 import de.example.quizdata.objects.Answer;
 import de.example.quizdata.objects.Question;
 import de.example.quizdata.objects.Quiz;
-import de.example.quizdata.objects.Subject;
 
 public class FakeDataManager implements QuizDataManager {
 
@@ -19,11 +18,9 @@ public class FakeDataManager implements QuizDataManager {
 	private Quiz createJavaQuiz() {
 
 		Quiz java = new Quiz("Java");
-		Subject sub = new Subject("Java-Keywords");
 
 		// Frage 0
 		Question quest = new Question("Welche Variable wird mit dem Keyword static deklariert?");
-		quest.setSubject(sub);
 		java.addQuestion(quest);
 
 		Answer ans = new Answer("Lokale Variable", false);
@@ -40,7 +37,6 @@ public class FakeDataManager implements QuizDataManager {
 		// Frage 1
 		quest = new Question(
 				"Welches Keyword wird bei der Deklaration einer Methode verwendet, die keinen Returnwert zurückgibt?");
-		quest.setSubject(sub);
 		java.addQuestion(quest);
 
 		quest.addAnswer(new Answer("private", false));
@@ -52,7 +48,6 @@ public class FakeDataManager implements QuizDataManager {
 
 		// Frage 2
 		quest = new Question("Was wird mit einem Konstruktor konstruiert?");
-		quest.setSubject(sub);
 		java.addQuestion(quest);
 
 		quest.addAnswer(new Answer("Klasse", false));
@@ -81,8 +76,6 @@ public class FakeDataManager implements QuizDataManager {
 		for (int i = 0; i < fragenAnzahl; i++) {
 			Question frage = new Question("Question " + i);
 			q.addQuestion(frage);
-
-			frage.setSubject(new Subject("Subject"));
 
 			zufallsJ = zufall.nextInt(antwortenAnzahl);
 			for (int j = 0; j < antwortenAnzahl; j++) {
