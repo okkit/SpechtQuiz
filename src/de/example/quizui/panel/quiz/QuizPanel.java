@@ -28,8 +28,7 @@ public class QuizPanel extends AppPanel {
 		add(questionPanel, BorderLayout.NORTH);
 		
 		answerPanel = new AnswerPanel(question.getAnswers());
-//		answerPanel.setListener(header);
-		answerPanel.listener = header;
+		answerPanel.setListener(header); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		add(answerPanel, BorderLayout.CENTER);
 
 		infoPanel = new InfoPanel(question.getInfo());

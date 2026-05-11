@@ -18,16 +18,22 @@ import de.example.quizui.panel.AnswerPanelListener;
  * </p>
  */
 public class HeaderPanel extends AppPanel implements AnswerPanelListener{
+	
 
 	AppBigLabel questionCounterLabel;
 	private AppBigLabel scoreLabel;
+	private  String scoreString = "Richtig: %d von %d";
+	
+	private int count;
+	private int correctAnswered = 0;
 	/**
 	 * Erstellt das Kopfbereich-Panel.
 	 * @param count = Anzahl der Fragen im Quiz
 	 */
 	public HeaderPanel(int count) {
+		this.count = count;
 		initializePanel();
-		buildLayout(count);
+		buildLayout();
 	}
 
 	/**
@@ -42,9 +48,9 @@ public class HeaderPanel extends AppPanel implements AnswerPanelListener{
 	/**
 	 * Baut die enthaltenen Komponenten des Panels auf.
 	 */
-	private void buildLayout(int count) {
+	private void buildLayout() {
 		questionCounterLabel = new AppBigLabel("Frage 1");
-		scoreLabel = new AppBigLabel("Richtig: 0 / " + count, SwingConstants.RIGHT);
+		scoreLabel = new AppBigLabel(scoreString.formatted(correctAnswered, count), SwingConstants.RIGHT);
 
 		add(questionCounterLabel, BorderLayout.WEST);
 		add(scoreLabel, BorderLayout.EAST);
@@ -52,7 +58,7 @@ public class HeaderPanel extends AppPanel implements AnswerPanelListener{
 
 	@Override
 	public void updateScore() {
-		System.out.println("in updateScore");
+		scoreLabel.setText(scoreString.formatted(++correctAnswered, count));
 		
 	}
 }

@@ -19,17 +19,16 @@ import de.example.quizui.panel.AnswerPanelListener;
  * Panel für die Anzeige der auswählbaren Antwortoptionen.
  */
 public class AnswerPanel extends AppPanel {
-	
-	/////////////////////////////////////////////
-	public AnswerPanelListener listener; // Reagiert, wenn eine richtige Antwort angeklickt wurde
 
-	List<Answer> list;
+	/////////////////////////////////////////////
+	private AnswerPanelListener listener; // Reagiert, wenn eine richtige Antwort angeklickt wurde
+
 	List<AppRadioButton> radioButtons;
 	ButtonGroup buttonGroup;
 	/**
 	 * Das Feld answered
 	 */
-	private boolean answered = false; 
+	private boolean answered = false;
 
 	/**
 	 * Erstellt das Antwort-Panel.
@@ -38,10 +37,9 @@ public class AnswerPanel extends AppPanel {
 	 */
 	public AnswerPanel(List<Answer> list) {
 
-		this.list = list;
 		radioButtons = new ArrayList<AppRadioButton>(list.size());
 		initializePanel();
-		buildLayout();
+		buildLayout(list);
 	}
 
 	/**
@@ -55,8 +53,9 @@ public class AnswerPanel extends AppPanel {
 
 	/**
 	 * Baut die Antwortoptionen des Panels auf.
+	 * @param list 
 	 */
-	private void buildLayout() {
+	private void buildLayout(List<Answer> list) {
 		buttonGroup = new ButtonGroup();
 
 		for (Answer answer : list) {
@@ -106,13 +105,12 @@ public class AnswerPanel extends AppPanel {
 			if (rb.isCorrect()) {
 				rb.setForeground(Color.GREEN);
 				listener.updateScore();
-			}
-			else {
+			} else {
 				rb.setForeground(Color.RED);
-				for (int i = 0; i < radioButtons.size(); i++) {
-					if (list.get(i).isCorrect())
-						radioButtons.get(i).setForeground(Color.GREEN);
-				}
+
+				for (AppRadioButton arb : radioButtons)
+					if (arb.getAnswer().isCorrect())
+						arb.setForeground(Color.GREEN);
 			}
 		}
 	}
