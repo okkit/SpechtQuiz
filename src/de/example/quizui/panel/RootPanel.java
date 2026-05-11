@@ -27,12 +27,12 @@ public class RootPanel extends AppPanel {
 
 		int questionCount = quiz.getQuestions().size();
 		
-		headerPanel = new HeaderPanel(questionCount);
+		headerPanel = new HeaderPanel(questionCount); ////////////////////
 		add(headerPanel, BorderLayout.NORTH);
 	
 		List<Question> liste = quiz.getQuestions();
 		
-		quizPanel = new QuizPanel(liste);
+		quizPanel = new QuizPanel(liste, headerPanel); ////////////////
 		add(quizPanel, BorderLayout.CENTER);
 	}
 	

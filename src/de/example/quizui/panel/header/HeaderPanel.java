@@ -8,6 +8,7 @@ import javax.swing.SwingConstants;
 import de.example.quizui.UIConstants;
 import de.example.quizui.element.AppBigLabel;
 import de.example.quizui.element.AppPanel;
+import de.example.quizui.panel.AnswerPanelListener;
 
 /**
  * Panel für den oberen Kopfbereich der Oberfläche.
@@ -16,9 +17,10 @@ import de.example.quizui.element.AppPanel;
  * beantworteten Fragen an.
  * </p>
  */
-public class HeaderPanel extends AppPanel {
+public class HeaderPanel extends AppPanel implements AnswerPanelListener{
 
 	AppBigLabel questionCounterLabel;
+	private AppBigLabel scoreLabel;
 	/**
 	 * Erstellt das Kopfbereich-Panel.
 	 * @param count = Anzahl der Fragen im Quiz
@@ -42,9 +44,15 @@ public class HeaderPanel extends AppPanel {
 	 */
 	private void buildLayout(int count) {
 		questionCounterLabel = new AppBigLabel("Frage 1");
-		AppBigLabel scoreLabel = new AppBigLabel("Richtig: 0 / " + count, SwingConstants.RIGHT);
+		scoreLabel = new AppBigLabel("Richtig: 0 / " + count, SwingConstants.RIGHT);
 
 		add(questionCounterLabel, BorderLayout.WEST);
 		add(scoreLabel, BorderLayout.EAST);
+	}
+
+	@Override
+	public void updateScore() {
+		System.out.println("in updateScore");
+		
 	}
 }

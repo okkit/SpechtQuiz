@@ -13,11 +13,15 @@ import de.example.quizdata.objects.Answer;
 import de.example.quizui.UIConstants;
 import de.example.quizui.element.AppPanel;
 import de.example.quizui.element.AppRadioButton;
+import de.example.quizui.panel.AnswerPanelListener;
 
 /**
  * Panel für die Anzeige der auswählbaren Antwortoptionen.
  */
 public class AnswerPanel extends AppPanel {
+	
+	/////////////////////////////////////////////
+	public AnswerPanelListener listener; // Reagiert, wenn eine richtige Antwort angeklickt wurde
 
 	List<Answer> list;
 	List<AppRadioButton> radioButtons;
@@ -99,8 +103,10 @@ public class AnswerPanel extends AppPanel {
 
 			AppRadioButton rb = (AppRadioButton) e.getSource();
 
-			if (rb.isCorrect())
+			if (rb.isCorrect()) {
 				rb.setForeground(Color.GREEN);
+				listener.updateScore();
+			}
 			else {
 				rb.setForeground(Color.RED);
 				for (int i = 0; i < radioButtons.size(); i++) {
@@ -109,6 +115,10 @@ public class AnswerPanel extends AppPanel {
 				}
 			}
 		}
+	}
+
+	public void setListener(AnswerPanelListener listener) {
+		this.listener = listener;
 	}
 
 }
