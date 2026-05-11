@@ -33,6 +33,7 @@ public class RootPanel extends AppPanel {
 		List<Question> liste = quiz.getQuestions();
 		
 		quizPanel = new QuizPanel(liste, headerPanel); ////////////////
+		quizPanel.questionNumberUpdater = headerPanel;
 		add(quizPanel, BorderLayout.CENTER);
 	}
 	

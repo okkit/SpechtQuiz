@@ -3,6 +3,8 @@ package de.example.quizui.panel.quiz;
 import java.awt.BorderLayout;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import de.example.quizdata.objects.Question;
 import de.example.quizui.element.AppPanel;
 import de.example.quizui.panel.header.HeaderPanel;
@@ -16,6 +18,8 @@ public class QuizPanel extends AppPanel {
 	InfoPanel infoPanel;
 	private QuestionPanel questionPanel;
 	private AnswerPanel answerPanel;
+	
+	public HeaderPanel questionNumberUpdater;
 
 	public QuizPanel(List<Question> questions, HeaderPanel header) { ////////////////////
 		super(new BorderLayout(0, 15));
@@ -24,9 +28,9 @@ public class QuizPanel extends AppPanel {
 		// TODO check for questions == null and questions.size() == 0;
 		Question question = questions.get(0);
 
-		questionPanel = new QuestionPanel(question.getSubject().getTitle(), question.getText());	
+		questionPanel = new QuestionPanel(question.getSubject().getTitle(), question.getText());
 		add(questionPanel, BorderLayout.NORTH);
-		
+
 		answerPanel = new AnswerPanel(question.getAnswers());
 		answerPanel.setListener(header); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		add(answerPanel, BorderLayout.CENTER);
@@ -36,20 +40,30 @@ public class QuizPanel extends AppPanel {
 		infoPanel.chef = this;
 	}
 
+	int questionNumber = 0;
+
 	public void pleaseNextQuestion() {
-//		JOptionPane.showMessageDialog(null, "Mach ich gleich");
+
+		if (questionNumber == questions.size() - 1) {
+			JOptionPane.showMessageDialog(null, "Game over\nKeine weiteren Fragen");
+			return;
+		}
+
+		questionNumber++;
 		
-		Question nextQuestion = questions.get(1);
+		// HeadPanel muss benachrichtigt werden!
+		questionNumberUpdater.updateQuestionNumber(questionNumber);
 		
+		Question nextQuestion = questions.get(questionNumber);	
 		// Infotext auf dem InfoPanel austaueschen
 		infoPanel.showNextQuestion(nextQuestion.getInfo());
-		
+
 		// Fragentext auf dem QuestionPanel austauschen
 		questionPanel.showNextQuestion(nextQuestion.getText());
-		
+
 		// Aufgabe: Answers auf dem AnswerPanel austauschen
-		
+
 		answerPanel.showNextQuestion(nextQuestion.getAnswers());
-		
+
 	}
 }

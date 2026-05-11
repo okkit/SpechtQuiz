@@ -21,6 +21,7 @@ public class FakeDataManager implements QuizDataManager {
 		Quiz java = new Quiz("Java");
 		Subject sub = new Subject("Java-Keywords");
 
+		// Frage 0
 		Question quest = new Question("Welche Variable wird mit dem Keyword static deklariert?");
 		quest.setSubject(sub);
 		java.addQuestion(quest);
@@ -36,6 +37,7 @@ public class FakeDataManager implements QuizDataManager {
 		quest.setInfo(
 				"Um eine statische Variable verwenden zu können braucht man keine Instanz der Klasse.");
 
+		// Frage 1
 		quest = new Question(
 				"Welches Keyword wird bei der Deklaration einer Methode verwendet, die keinen Returnwert zurückgibt?");
 		quest.setSubject(sub);
@@ -47,6 +49,17 @@ public class FakeDataManager implements QuizDataManager {
 		quest.addAnswer(new Answer("String", false));
 		quest.setInfo(
 				"Bei der Deklaration einer Methode muss der Datentyp des Rückgabewertes benannt werden.");
+
+		// Frage 2
+		quest = new Question("Was wird mit einem Konstruktor konstruiert?");
+		quest.setSubject(sub);
+		java.addQuestion(quest);
+
+		quest.addAnswer(new Answer("Klasse", false));
+		quest.addAnswer(new Answer("Instanz", true));
+		quest.addAnswer(new Answer("Methode", false));
+		quest.addAnswer(new Answer("Feld", false));
+		quest.setInfo("new Constructor()");
 
 		return java;
 	}

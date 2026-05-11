@@ -20,7 +20,7 @@ import de.example.quizui.panel.AnswerPanelListener;
 public class HeaderPanel extends AppPanel implements AnswerPanelListener{
 	
 
-	AppBigLabel questionCounterLabel;
+	private AppBigLabel questionCounterLabel;
 	private AppBigLabel scoreLabel;
 	private  String scoreString = "Richtig: %d von %d";
 	
@@ -54,6 +54,10 @@ public class HeaderPanel extends AppPanel implements AnswerPanelListener{
 
 		add(questionCounterLabel, BorderLayout.WEST);
 		add(scoreLabel, BorderLayout.EAST);
+	}
+	
+	public void updateQuestionNumber(int number) {
+		questionCounterLabel.setText("Frage " + (number + 1));
 	}
 
 	@Override

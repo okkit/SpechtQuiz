@@ -8,8 +8,13 @@ public class AppBigLabel extends AppLabel {
 		super(text);
 	}
 
-	   public AppBigLabel(String string, int right) {
-		super(string, right);
+	/**
+	 * 
+	 * @param string
+	 * @param right aligment in parent-Component
+	 */
+	   public AppBigLabel(String string, int aligment) {
+		super(string, aligment);
 	}
 
 	   /**
