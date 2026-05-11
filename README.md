@@ -1,17 +1,19 @@
-Projekt: QuizUiMockup
+##### Projekt: QuizUiMockup
 
-Typ:
+**Typ:**
 Eclipse Java-Projekt mit Swing-GUI
 
-Startklasse:
+**Startklasse:**
 de.example.quizui.AppLauncher
 
-Hinweise (aus dem Promt für ChatGPT):
-- Nur GUI, kein Model, keine Persistenz
-- Struktur in mehrere Panels aufgeteilt
-- Generalisierte Swing-Komponenten als eigene Klassen
-- Layout-Aufbau in separaten Methoden
-- Alle Klassen mit Javadoc versehen
+**Hinweise** (aus dem Promt für ChatGPT):
 
-Result:<br>
-![Result](https://github.com/okkit/SpechtQuiz/blob/main/doc/Result.png)
+* Nur GUI, kein Model, keine Persistenz
+* Struktur in mehrere Panels aufgeteilt
+* Generalisierte Swing-Komponenten als eigene Klassen
+* Layout-Aufbau in separaten Methoden
+* Alle Klassen mit Javadoc versehen
+
+**Result**:<br>
+!\[Result](https://github.com/okkit/SpechtQuiz/blob/main/doc/Result.png)
+
