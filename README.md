@@ -15,5 +15,5 @@ de.example.quizui.AppLauncher
 * Alle Klassen mit Javadoc versehen
 
 **Result**:<br>
-!\[Result](https://github.com/okkit/SpechtQuiz/main/doc/Result.png)
+!\[Result](https://github.com/okkit/SpechtQuiz/blob/main/doc/Result.png)
 
