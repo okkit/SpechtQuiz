@@ -9,6 +9,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Random;
 
+/**
+ * Dies ist ein Programm zum Erstellen einer MySQL Datenbank
+ */
 public class DBCreator {
 
 	public static void main(String[] args) {

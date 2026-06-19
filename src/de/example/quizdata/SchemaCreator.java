@@ -1,0 +1,72 @@
+package de.example.quizdata;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+/**
+ * Dies ist ein Programm zum Erstellen einer MySQL Datenbank für das Projekt
+ * SpechtQuiz
+ */
+public class SchemaCreator {
+
+	private static final String URL = "jdbc:mysql://localhost:3306?allowMultiQueries=true";
+	private static final String USER = "root";
+	private static final String PASSWORD = "";
+
+	// Im SQL-Skript stehen Apostrofen: DROP SCHEMA IF EXISTS `spechtquiz` ;
+	// Diese müssen entfernt werden.
+	private static String CREATE_SHEMA_SPECHTQUIZ = "DROP SCHEMA IF EXISTS spechtquiz; "
+			+ "CREATE SCHEMA IF NOT EXISTS spechtquiz;";
+
+	private static String CREATE_TABLE_QUIZ = "CREATE TABLE IF NOT EXISTS spechtquiz.Quiz "
+			+ "(id INT NOT NULL AUTO_INCREMENT, "
+			+ "title VARCHAR(45) NOT NULL, "
+			+ "PRIMARY KEY (id));";
+
+	private static String CREATE_TABLE_QUESTION = "CREATE TABLE IF NOT EXISTS spechtquiz.Question "
+			+ "(id INT NOT NULL AUTO_INCREMENT, "
+			+ "text VARCHAR(500) NOT NULL, score INT NULL, Quiz_id INT NOT NULL,  "
+			+ "PRIMARY KEY (id, Quiz_id),"
+			+ "CONSTRAINT fk_Question_Quiz FOREIGN KEY (Quiz_id) REFERENCES spechtquiz.Quiz (id))";
+	
+	
+	private static String CREATE_TABLE_ANSWER = "CREATE TABLE IF NOT EXISTS spechtquiz.Answer ("
+			+ "  id INT NOT NULL AUTO_INCREMENT,"
+			+ "  text VARCHAR(80) NOT NULL,"
+			+ "  correct TINYINT NOT NULL,"
+			+ "  Question_id INT NOT NULL,"
+			+ "  Question_Quiz_id INT NOT NULL,"
+			+ "  PRIMARY KEY (id, Question_id, Question_Quiz_id),"
+			+ "  INDEX fk_Answer_Question_idx (Question_id ASC, Question_Quiz_id ASC),"
+			+ "  CONSTRAINT fk_Answer_Question"
+			+ "  FOREIGN KEY (Question_id , Question_Quiz_id)"
+			+ "  REFERENCES spechtquiz.Question (id , Quiz_id))";
+
+	public static void main(String[] args) {
+		
+		// Verbindung zu der Datenbank herstellen
+		try (Connection con = DriverManager.getConnection(URL, USER, PASSWORD)) { 
+			
+			// Um SQL-Commandos abzusetzen, brauchen wir die Instanz der Klasse Statement
+			Statement stmt = con.createStatement();
+			
+			// Die Klasse Statement ist in der Lage ein SQL-Befehl abzusetzen (die Methode execute)
+			stmt.execute(CREATE_SHEMA_SPECHTQUIZ);
+			System.out.println("Databes is created");
+
+			stmt.execute(CREATE_TABLE_QUIZ);
+			System.out.println("Table Quiz is created");
+			
+			stmt.execute(CREATE_TABLE_QUESTION);
+			System.out.println("Table Question is created");
+			
+			stmt.execute(CREATE_TABLE_ANSWER);
+			System.out.println("Table Answer is created");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}
