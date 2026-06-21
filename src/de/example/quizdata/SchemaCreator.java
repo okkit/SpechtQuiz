@@ -11,9 +11,13 @@ import java.sql.Statement;
  */
 public class SchemaCreator {
 
-	private static final String URL = "jdbc:mysql://localhost:3306?allowMultiQueries=true";
-	private static final String USER = "root";
-	private static final String PASSWORD = "";
+//	private static final String URL = "jdbc:mysql://localhost:3306?allowMultiQueries=true";
+//	private static final String USER = "root";
+//	private static final String PASSWORD = "";
+//	
+	private static final String URL = System.getenv("db_url");
+    private static final String USER = System.getenv("db_user");
+    private static final String PASSWORD = System.getenv("db_password");
 
 	// Im SQL-Skript stehen Apostrofen: DROP SCHEMA IF EXISTS `spechtquiz` ;
 	// Diese müssen entfernt werden.
@@ -45,6 +49,15 @@ public class SchemaCreator {
 			+ "  REFERENCES spechtquiz.Question (id , Quiz_id))";
 
 	public static void main(String[] args) {
+		
+		if (URL == null || USER == null || PASSWORD == null) {
+            System.out.println("Fehler: DB_URL, DB_USER oder DB_PASSWORD ist nicht gesetzt.");
+            return;
+        }
+		
+		System.out.println(URL);
+		System.out.println(USER);
+		System.out.println("[" + PASSWORD+"]");
 		
 		// Verbindung zu der Datenbank herstellen
 		try (Connection con = DriverManager.getConnection(URL, USER, PASSWORD)) { 
