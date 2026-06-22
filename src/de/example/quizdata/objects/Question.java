@@ -3,7 +3,7 @@ package de.example.quizdata.objects;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Question {
+public class Question extends DataAccessObject{
 
 	private String text;
 	private String info;

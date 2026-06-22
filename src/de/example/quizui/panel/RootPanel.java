@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.util.List;
 
+import de.example.quizdata.MySqlDataManager;
+import de.example.quizdata.QuizDataManager;
 import de.example.quizdata.objects.Question;
 import de.example.quizdata.objects.Quiz;
 import de.example.quizui.element.AppPanel;
@@ -22,8 +24,13 @@ public class RootPanel extends AppPanel {
 //	Das Feld component gehört der Klasse Container
 //	Container ist die super.super...superKlasse des RootPanels 
 
-	public RootPanel(Quiz quiz) {
+	public RootPanel() {
 		super(new BorderLayout(0, 15));
+		
+		QuizDataManager mng = new MySqlDataManager();
+		
+		List<Quiz> list = mng.getQuizList();
+		Quiz quiz = list.get(0);
 
 		int questionCount = quiz.getQuestions().size();
 		

@@ -6,7 +6,7 @@ package de.example.quizdata.objects;
 /**
  * Die Klasse beschreibt das Objekt Answer.
  */
-public class Answer {
+public class Answer extends DataAccessObject{
 
 	private String text;
 	private boolean correct;

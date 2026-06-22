@@ -1,5 +1,6 @@
 package de.example.quizdata;
 
+import java.util.List;
 import java.util.Random;
 
 import de.example.quizdata.objects.Answer;
@@ -86,5 +87,11 @@ public class FakeDataManager implements QuizDataManager {
 			}
 		}
 		return q;
+	}
+
+	@Override
+	public List<Quiz> getQuizList() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

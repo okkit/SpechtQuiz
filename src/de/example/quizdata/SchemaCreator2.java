@@ -9,7 +9,7 @@ import java.sql.Statement;
  * Dies ist ein Programm zum Erstellen einer MySQL Datenbank f�r das Projekt
  * SpechtQuiz
  */
-public class SchemaCreator {
+public class SchemaCreator2 {
 
 // Die Zugangsdaten im Sourcecode zu halten ist eine sehr unsichere Sache.
 // Ein Weg, dies sicher zu gestalten, ist die notwendigen Daten als

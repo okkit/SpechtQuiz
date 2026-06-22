@@ -1,5 +1,7 @@
 package de.example.quizdata;
 
+import java.util.List;
+
 import de.example.quizdata.objects.Quiz;
 
 /**
@@ -11,5 +13,6 @@ import de.example.quizdata.objects.Quiz;
 public interface QuizDataManager {
 	
 	public Quiz getQuiz();
+	public List<Quiz> getQuizList();
 
 }
